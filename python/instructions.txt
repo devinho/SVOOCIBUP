@@ -1,0 +1,1 @@
+This file will include instructions for installing and running the data collection script on the users machine. We are currently limiting the users to owners of Macbooks.
