@@ -15,6 +15,9 @@ Spatial Visualization Overlay of Computer Input By Usage Patterns
 * pip install pyobjc-framework-Quartz
 * pip install pyuserinput
 
+## Note
+* keyboard_listener.py will not catch keyboard interrupts. The current solution for stopping the script is finding its pid (ps) and sending a kill signal to that pid (kill -9 <id>).
+
 * Reference: http://stackoverflow.com/questions/17271319/installing-pip-on-mac-os-x
 
 ## Final project ~ CS467 @ UIUC
