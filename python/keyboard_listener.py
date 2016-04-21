@@ -1,3 +1,7 @@
+'''
+    Source: https://gist.github.com/ljos/3019549
+'''
+
 from AppKit import NSApplication, NSApp
 from Foundation import NSObject, NSLog
 from Cocoa import NSEvent, NSKeyDownMask
