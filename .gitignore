@@ -1,0 +1,6 @@
+visualization/.DS_Store
+
+visualization/.sass-cache/
+visualization/node_modules/
+visualization/npm-debug.log
+visualization/public/python/watch-history.json

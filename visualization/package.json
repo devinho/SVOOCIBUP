@@ -1,0 +1,8 @@
+{
+   "name": "trumprelocationservices",
+   "version": "1.0.0",
+   "homepage": "https://github.com/sskhandek/trumprelocationservices",
+   "dependencies": {
+     "express": "^4.11.1"
+   }
+}
