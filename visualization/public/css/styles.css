@@ -1,1 +1,19 @@
 /* css */
+
+.heat_container .overlay{
+	position: absolute;
+	width: 500px;
+	height: 312.5px;
+	top: 0;
+	left: 0;
+}
+
+canvas{
+	opacity: 0.5;
+}
+
+.heat_container img{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
