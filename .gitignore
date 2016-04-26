@@ -1,5 +1,6 @@
 visualization/.DS_Store
-
+.DS_Store
+data/
 visualization/.sass-cache/
 visualization/node_modules/
 visualization/npm-debug.log

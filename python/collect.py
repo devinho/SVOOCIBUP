@@ -1,4 +1,3 @@
-# We should combine all of the listener components here so that the user runs one script.
 import time
 import datetime
 from threading import Thread
@@ -14,16 +13,16 @@ from Foundation import NSObject, NSLog
 from Cocoa import NSEvent, NSKeyDownMask
 from PyObjCTools import AppHelper
 
+import os
+
 # define a global mouse
 m = PyMouse()
+# used for namng screen shots
+screenshotInterval = 0
 
-# captures the current mouse position every 0.1 seconds
-def captureMouse():
-    threading.Timer(0.1, captureMouse).start()
-    # do something with data
-    print m.position();
-    print datetime.datetime.utcnow()
-
+'''
+    Defines a module for capturing keyboard input
+'''
 class AppDelegate(NSObject):
     def applicationDidFinishLaunching_(self, notification):
         mask = NSKeyDownMask
@@ -36,8 +35,26 @@ def handler(event):
         NSLog(u"%@", event)
     except KeyboardInterrupt:
         AppHelper.stopEventLoop()
+'''
+    End Module
+'''
 
-def keyboardStart(arg):
+# captures the current mouse position every 0.1 seconds
+def captureMouse():
+    threading.Timer(0.1, captureMouse).start()
+    # do something with data
+    print m.position();
+    print datetime.datetime.utcnow()
+
+# takes a screen shot every 10 seconds and saves it in the current directory under data/
+def takeScreenshot(interval):
+    interval += 10
+    threading.Timer(10, takeScreenshot, args=[interval]).start()
+    name = "data/screenshort_" + str(interval) + ".png"
+    os.system("screencapture " + name)
+
+# starts the keyboard capture using the keyboard module
+def keyboardStart():
     app = NSApplication.sharedApplication()
     delegate = AppDelegate.alloc().init()
     NSApp().setDelegate_(delegate)
@@ -45,7 +62,8 @@ def keyboardStart(arg):
 
 def main():
     captureMouse()
-
+    takeScreenshot(0) # start with interval 0 for naming screen shots
+    keyboardStart()
     
 if __name__ == '__main__':
     main()
