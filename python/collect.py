@@ -139,7 +139,7 @@ def main():
     threading.Timer(0, startClickListener).start()
     captureMouse()
     takeScreenshot(0) # start with interval 0 for naming screen shots
-    threading.Timer(30, stopScript).start() # 20 seconds minutes
+    threading.Timer(30, stopScript).start() # 30 seconds. Needs to be greater than 20s for all components to start.
     keyboardStart()
     print 'Script Start'
 
