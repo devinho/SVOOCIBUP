@@ -22,6 +22,8 @@ import json
 m = PyMouse()
 # array of mouse metadata dictionaries
 mouseDataArr = []
+# array of mouse click metadata dictionaries
+clickDataArr = []
 # array of keyboard press metadata dictionaries
 keyDataArr = []
 
@@ -33,12 +35,9 @@ class AppDelegate(NSObject):
         mask = NSKeyDownMask
         NSEvent.addGlobalMonitorForEventsMatchingMask_handler_(mask, handler)
 
-# captures the any keyboard presses
+# captures any keyboard presses
 def handler(event):
     try:
-        # do something with data
-        #NSLog(u"%@", event)
-        # NSEvent: type=KeyDown loc=(541,419) time=1402434.1 flags=0x100 win=0x0 winNum=0 ctxt=0x0 chars="d" unmodchars="d" repeat=0 keyCode=2
         dataArr = str(event).split()
 
         charValue = [s for s in dataArr if 'chars' in s and 'unmodchars' not in s][0]
@@ -49,10 +48,35 @@ def handler(event):
             "character": str(charValue)
         }
         keyDataArr.append(keyPoint)
-        #print str(event)
+        
     except KeyboardInterrupt:
         print 'yolocats'
         AppHelper.stopEventLoop()
+'''
+    End Module
+'''
+
+'''
+    Define a module for listening to click events
+'''
+class ClickListener(PyMouseEvent):
+    def __init__(self):
+        PyMouseEvent.__init__(self)
+
+    # captures any mouse clicks
+    def click(self, x, y, button, press):
+        if button == 1:
+            print (x, y)
+            if press:
+                clickPoint = {
+                    "time_interval": str(datetime.datetime.utcnow()),
+                    "coordinate_x": x,
+                    "coordinate_y": y
+                }
+                clickDataArr.append(clickPoint)
+                
+        else:  # Exit if any other mouse button used
+            self.stop()
 '''
     End Module
 '''
@@ -88,6 +112,8 @@ def writeToFile():
         json.dump(mouseDataArr, outfile)
     with open('data/key_final.json', 'wb') as outfile:
         json.dump(keyDataArr, outfile)
+    with open('data/click_final.json', 'wb') as outfile:
+        json.dump(clickDataArr, outfile)
 
 # write the data to json on interrupt
 def signal_handler(signal, frame):
@@ -101,14 +127,19 @@ def stopScript():
     writeToFile()
     os._exit(0)
 
+def startClickListener():
+    C = ClickListener()
+    C.run()
+
 def main():
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
     # These take some time to start up
+    threading.Timer(0, startClickListener).start()
     captureMouse()
     takeScreenshot(0) # start with interval 0 for naming screen shots
-    threading.Timer(30, stopScript).start() # 2 minutes
+    threading.Timer(30, stopScript).start() # 20 seconds minutes
     keyboardStart()
     print 'Script Start'
 
