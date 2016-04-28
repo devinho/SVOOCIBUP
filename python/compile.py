@@ -110,7 +110,7 @@ for key in data:
 	 		int_start = datetime.datetime.strptime(interval['start_time'], '%Y-%m-%d %H:%M:%S.%f')
 	 		if curr_date > int_start and curr_date < int_start + datetime.timedelta(seconds = time_interval):
 	 			for idx, val in enumerate(interval['key_data']):
-	 				if val['x'] == obj['x'] and val['y'] == obj['y'] and interval['key_data'][idx]['radius'] < 100:
+	 				if val['x'] == obj['x'] and val['y'] == obj['y'] and interval['key_data'][idx]['radius'] < 200:
 	 					interval['key_data'][idx]['radius'] += 20
 	 					interval['key_data'][idx]['value'] += 20
 	 			interval['key_data'].append(obj)
@@ -122,7 +122,7 @@ for key in data:
 for key in data1: 
 	curr_date = datetime.datetime.strptime(key['time_interval'], '%Y-%m-%d %H:%M:%S.%f')
 	obj = {}
-	obj['x'] = math.ceil(key['coordinate_x']/4) + 30 
+	obj['x'] = math.ceil(key['coordinate_x']/4) + 50 
 	obj['y'] = math.ceil(key['coordinate_y']/4) + 30
 	obj['value'] = 30
 	obj['radius'] = 30
@@ -135,7 +135,7 @@ for key in data1:
 for key in data2: 
 	curr_date = datetime.datetime.strptime(key['time_interval'], '%Y-%m-%d %H:%M:%S.%f')
 	obj = {}
-	obj['x'] = math.ceil(key['coordinate_x']/4) + 30
+	obj['x'] = math.ceil(key['coordinate_x']/4) + 50
 	obj['y'] = math.ceil(key['coordinate_y']/4) + 30
 	obj['value'] = 30
 	obj['radius'] = 30
