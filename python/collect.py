@@ -95,7 +95,7 @@ def captureMouse():
 
 # takes a screen shot every 10 seconds and saves it in the current directory under data/
 def takeScreenshot(interval):
-    threading.Timer(10, takeScreenshot, args=[interval + 10]).start()
+    threading.Timer(10, takeScreenshot, args=[interval + 1]).start()
     name = "data/screenshots/screenshort_" + str(interval) + ".png"
     os.system("screencapture " + name)
 
