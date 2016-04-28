@@ -13,7 +13,7 @@ def calculate_elapsed(start, end):
 with open('../data/key_final.json') as data_final:
 	data = json.load(data_final)
 
-with open('../data/click_final.json') as data_final:
+with open('../data/mouse_final.json') as data_final:
 	data1 = json.load(data_final)
 
 dict = dict([
@@ -123,8 +123,11 @@ for key in data1:
 	 		if curr_date > int_start and curr_date < int_start + datetime.timedelta(seconds = time_interval):
 	 			interval['click_data'].append(obj)
 
-print json.dumps(final, sort_keys=True, indent=4, separators=(',', ': '))
+#print json.dumps(final, sort_keys=True, indent=4, separators=(',', ': '))
 
+
+with open('../visualization/public/assets/compiled_file.json', 'wb') as outfile:
+        json.dump(final, outfile)
 # print json.dumps(heatmap, sort_keys=True, indent=4, separators=(',', ': '))
 # print heatmap
 
