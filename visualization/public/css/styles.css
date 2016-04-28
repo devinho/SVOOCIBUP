@@ -8,7 +8,7 @@ html h1, h2, h3, h4, h5, p{
 
 body{
 	height: 100%;
-	background-color: #F7F7F7;
+	
 }
 
 #banner{
@@ -78,8 +78,10 @@ canvas{
 }
 
 #stats{
-	
+	padding: 0 10px;
 }
+
+
 #pause{
 	font-weight: bold;
 }

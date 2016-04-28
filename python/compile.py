@@ -122,8 +122,8 @@ for key in data:
 for key in data1: 
 	curr_date = datetime.datetime.strptime(key['time_interval'], '%Y-%m-%d %H:%M:%S.%f')
 	obj = {}
-	obj['x'] = math.ceil(key['coordinate_x']/4)
-	obj['y'] = math.ceil(key['coordinate_y']/4)
+	obj['x'] = math.ceil(key['coordinate_x']/4) + 30 
+	obj['y'] = math.ceil(key['coordinate_y']/4) + 30
 	obj['value'] = 30
 	obj['radius'] = 30
 	for interval in final:
@@ -135,8 +135,8 @@ for key in data1:
 for key in data2: 
 	curr_date = datetime.datetime.strptime(key['time_interval'], '%Y-%m-%d %H:%M:%S.%f')
 	obj = {}
-	obj['x'] = math.ceil(key['coordinate_x']/4)
-	obj['y'] = math.ceil(key['coordinate_y']/4)
+	obj['x'] = math.ceil(key['coordinate_x']/4) + 30
+	obj['y'] = math.ceil(key['coordinate_y']/4) + 30
 	obj['value'] = 30
 	obj['radius'] = 30
 	for interval in final:

@@ -6,6 +6,7 @@ app.controller('vizController', ['$scope', '$http', function($scope, $http) {
 		$scope.active_image = "./assets/screenshots/screenshort_0.png";
 		$scope.mouse_count = final_data[0].mouse_data.length;
 		$scope.click_count = final_data[0].click_data.length;
+
 		for(var heatmapInstance=h337.create({container:document.querySelector(".heatmap"),backgroundColor:"rgba(255,255,255,0)",gradient:{".5":"red"},maxOpacity:.7,minOpacity:.1}),points=[],max=0,width=840,height=400,len=300;len--;){var val=Math.floor(100*Math.random()),radius=Math.floor(70*Math.random());max=Math.max(max,val);var point={x:Math.floor(Math.random()*width),y:Math.floor(Math.random()*height),value:val,radius:radius};points.push(point)}var data={max:max,data:points};
 		var temp = {data: final_data[0].mouse_data};
 		heatmapInstance.setData(temp);
