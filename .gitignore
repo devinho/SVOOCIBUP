@@ -2,6 +2,7 @@ visualization/.DS_Store
 .DS_Store
 data/screenshots
 visualization/.sass-cache/
+visualization/public/.DS_Store
 visualization/node_modules/
 visualization/npm-debug.log
 visualization/public/python/watch-history.json

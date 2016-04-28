@@ -28,7 +28,7 @@ app.controller('vizController', ['$scope', '$http', function($scope, $http) {
 			$scope.key_count = screen.key_data.length;
 			$scope.mouse_count = screen.mouse_data.length;
 			$scope.click_count = screen.click_data.length;
-			$scope.active_image = "./assets/screenshots/screenshort_" + (index * 10) + ".png"
+			$scope.active_image = "./assets/screenshots/screenshort_" + (index * 1) + ".png"
 			$('canvas').remove();
 			for(var heatmapInstance=h337.create({container:document.querySelector(".heatmap"),backgroundColor:"rgba(255,255,255,0)",gradient:{".5":"red"},maxOpacity:.7,minOpacity:.1}),points=[],max=0,width=840,height=400,len=300;len--;){var val=Math.floor(100*Math.random()),radius=Math.floor(70*Math.random());max=Math.max(max,val);var point={x:Math.floor(Math.random()*width),y:Math.floor(Math.random()*height),value:val,radius:radius};points.push(point)}var data={max:max,data:points};
 			var temp = {data: screen.mouse_data};
