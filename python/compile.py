@@ -110,7 +110,7 @@ for key in data:
 	 		int_start = datetime.datetime.strptime(interval['start_time'], '%Y-%m-%d %H:%M:%S.%f')
 	 		if curr_date > int_start and curr_date < int_start + datetime.timedelta(seconds = time_interval):
 	 			for idx, val in enumerate(interval['key_data']):
-	 				if val['x'] == obj['x'] and val['y'] == obj['y'] and interval['key_data'][idx]['radius'] < 300:
+	 				if val['x'] == obj['x'] and val['y'] == obj['y'] and interval['key_data'][idx]['radius'] < 211:
 	 					interval['key_data'][idx]['radius'] += 20
 	 					interval['key_data'][idx]['value'] += 20
 	 			interval['key_data'].append(obj)
