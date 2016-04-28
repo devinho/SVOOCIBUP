@@ -1,13 +1,24 @@
 /* css */
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 html h1, h2, h3, h4, h5, p{
-	font-family: 'Fjalla One', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 
 body{
 	height: 100%;
 	background-color: #F7F7F7;
+}
+
+#banner{
+	max-width: none;
+	margin: 0;
+	background: #9E9E9E; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(90deg, #9E9E9E, #C3C3C3); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(90deg, #9E9E9E, #C3C3C3); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(90deg, #9E9E9E, #C3C3C3); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(90deg, #9E9E9E, #C3C3C3); /* Standard syntax */
 }
 
 
@@ -48,6 +59,13 @@ canvas{
 	height: 195px;
 }
 
+.panels{
+	border-left: 1px solid #9C9C9C;
+	border-right: 1px solid #9C9C9C;
+	padding: 10px;
+	height: 100% !important;
+}
+
 #timeline{
 	margin: 20px 0;
 	overflow-y: scroll;
@@ -60,5 +78,12 @@ canvas{
 }
 
 #stats{
-	margin-top: 400px;
+	
+}
+#pause{
+	font-weight: bold;
+}
+
+.active{
+	background-color: #FEA2A2;
 }

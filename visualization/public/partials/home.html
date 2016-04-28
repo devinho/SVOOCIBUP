@@ -1,28 +1,25 @@
-<div class="row">
-	<div class="large-2 columns">
+<div class="row" style="max-width: none; height: 100%;"> 
+	<div class="large-2 columns panels" style="padding: 0; padding-top: 15px;">
+		<p id="play" ng-click="play()" style="display: inline; margin: 0 10px 0 50px; cursor: pointer;">Play</p> <p id="pause" ng-click="pause()" style="display: inline; margin:  5px; cursor: pointer;">Pause</p>
 
 		<div id="timeline">
-			<div ng-repeat="screen in screens" style="position: relative;" ng-click=set(screen)>
-				<h5 style="position: absolute; bottom: 0; right: 0">{{screen.start_time}}</h5>
-				<img src="./assets/screen_shot.png">
+			<div ng-repeat="screen in screens" style="position: relative; padding: 5px; cursor: pointer;" ng-click="set(screen, $index)"
+			data-ng-class="{'active' : toggleObject.item == $index}">
+				<h5 style="position: absolute; bottom: 0; right: 8px">{{$index}}</h5>
+				<img src="./assets/screenshots/screenshort_{{$index * 10}}.png">
 			</div>
 			
 		</div>
 	</div>
 
-	<div class="large-8 columns">
-		<div class="row">
-			<div class="large-12 columns">
-				<h1 style="text-align: center"><strong>U</strong>ser <strong>I</strong>nterfacing <strong>V</strong>isualizer</span></h1>
-			</div>
-		</div>
+	<div class="large-8 columns panels" style="background-color: #F7F7F7;">
 
 		<div class="row">
 			<div class="large-12 columns">
 
 				<div class="heat_container">
 					<div class="overlay heatmap">
-						<img src="./assets/screen_shot.png">
+						<img src="{{active_image}}">
 					</div>
 				</div>
 
@@ -35,13 +32,13 @@
 		</div>
 	</div>
 
-	<div class="large-2 columns">
+	<div class="large-2 columns panels">
 
 		<div id="stats">
 			<h3>Statistics:</h3>
-			<p>Top Letters: QWOP</p>
-			<p>Number of clicks: 213</p>
-			<p>Number of key presses: 542</p>
+			<p>Number of mouse movements: {{mouse_count}}</p>
+			<p>Number of mouse clicks: {{click_count}}</p>
+			<p>Number of key presses: {{key_count}}</p>
 		</div>
 	</div>
 
