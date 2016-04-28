@@ -4,6 +4,7 @@ Spatial Visualization Overlay of Computer Input By Usage Patterns
 
 ## Installation (OSX)
 
+* Install XCode from the App Store (sorry, we know that's a lot to ask)
 * Install Python 2.7
     * if you have Homebrew:
     * brew update
